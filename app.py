@@ -4,6 +4,7 @@ from urllib.request import urlopen
 import linecache
 import re
 from datetime import datetime
+from datetime import timedelta
 import csv
 
 html = urlopen('http://rakuen.jeison.biz/bbs/?mode=list')
@@ -24,9 +25,15 @@ m = r.search(line)
 # data準備
 data = [int(m.group(1)), now]
 
+# 0時処理
+if now.hour != 0:
+    logdate = now
+
+else:
+    logdate = now - timedelta(days=1)
 
 # log書き込み
-with open('/home/pi/pg/python/rakcount/log/log', 'a') as f:
+with open('/home/pi/pg/python/rakcount/log/{0:%Y%m%d}.log'.format(logdate), 'a') as f:
     writer = csv.writer(f, lineterminator='\n')
     writer.writerow(data)
 
