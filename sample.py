@@ -12,8 +12,8 @@ import time
 if __name__ == "__main__":
 
     #ログイン
-    id_str = input('名前: ')
-    password_str = getpass('パス: ')
+    id_str = input('id: ')
+    password_str = getpass('pass: ')
     
     #設定
     times = 1
