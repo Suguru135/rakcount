@@ -2,8 +2,6 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
-from getpass import getpass
-
 import rakuen
 import time
 
@@ -12,18 +10,20 @@ from datetime import timedelta
 
 import plot
 
+import os
+
 if __name__ == "__main__":
 
     #ログイン
-    id_str = input('id: ')
-    password_str = getpass('pass: ')
+    id_str = os.environ['RNAME']
+    password_str = os.environ['RPASS']
     
     #設定
-    times = 1
-    no_str = '6'
-    name_str = 'びーびー'
-    contents_str = 'test'
     yesterday = datetime.now() - timedelta(days=1)
+    times = 1
+    no_str = '110'
+    name_str = 'びーびー'
+    contents_str = '{0:%Y/%m/%d}のアクセス'.format(yesterday)
     filepath_str = '/home/pi/pg/python/rakcount/images/{0:%Y%m%d}.png'.format(yesterday)
 
     print('設定完了')
