@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 from datetime import datetime
 from datetime import timedelta
 
@@ -24,7 +25,6 @@ def generate_bar(array, now):
     # pltの諸設定
     left = np.array(nums)
     height = np.array(array)
-    labels = map(lambda n: '{0}:00 ~ {1}:00'.format(n, n + 1), nums)
 
     plt.bar(left, height, width=1.0, color="#EEFFFF", edgecolor="#00AAEE")
     plt.savefig('/home/pi/pg/python/rakcount/images/{0:%Y%m%d}.png'.format(now))

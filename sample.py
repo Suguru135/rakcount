@@ -20,7 +20,6 @@ if __name__ == "__main__":
     
     #設定
     yesterday = datetime.now() - timedelta(days=1)
-    times = 1
     no_str = '110'
     name_str = 'びーびー'
     contents_str = '{0:%Y/%m/%d}のアクセス'.format(yesterday)
