@@ -44,8 +44,6 @@ if __name__ == "__main__":
         else:
            print("投稿失敗")
 
-        time.sleep(2.5)
-
     else:
         print('認証失敗')
     

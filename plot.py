@@ -36,14 +36,10 @@ def get_log(now):
     before = 0
     with open('/home/pi/pg/python/rakcount/log/{0:%Y%m%d}.log'.format(now), newline='') as f:
         reader = csv.reader(f)
-        for i, row in enumerate(reader):
+        for row in reader:
             num = int(row[0])
-            if i == 0:
-                array.append(num)
-                before = num
-            else:
-                array.append(num - before)
-                before = num
+            array.append(num - before)
+            before = num
 
     return array
 
